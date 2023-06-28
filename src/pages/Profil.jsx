@@ -8,14 +8,14 @@ function Profil() {
       <h2>Selectionne ton profil utilisateur</h2>
       <div className="profil-select-cards">
         {userData.map((user) => (
-          <article className="profil-select-card" key={user.data.id}>
-            <NavLink to={`/${user.data.id}`}>
+          <NavLink to={`/${user.data.id}`} key={user.data.id} className="profil-select-card">
+            <article >
               <h3>
                 {user.data.userInfos.firstName} {user.data.userInfos.lastName}
               </h3>
               <p>{user.data.userInfos.age} ans</p>
-            </NavLink>
-          </article>
+            </article>
+          </NavLink>
         ))}
       </div>
     </section>
