@@ -2,6 +2,7 @@ import './Home.css'
 import usersData from '../assets/user-main-data.json'
 import { useLocation } from "react-router-dom"
 import DataCard from '../components/DataCard'
+import DailyActivityChart from '../components/DailyActivityChart'
 
 function Home() {
     const {pathname} = useLocation()
@@ -14,7 +15,7 @@ function Home() {
         <p>Félicitation vous avez explosé vos objectifs hier 👏</p>
         <div className="home-card-container">
             <div className="home-activity-container">
-                <article></article>
+                <DailyActivityChart />
                 <div>
                     <article></article>
                     <article></article>
