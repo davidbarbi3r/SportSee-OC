@@ -1,17 +1,12 @@
-import "./Layout.css"
 import { Outlet } from "react-router-dom"
 import Header from "./components/Header.jsx"
+import Drawer from "./components/Drawer"
 
 function Layout() {
   return (
     <div>
         <Header />
-        <nav className="drawer-container">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-        </nav>
+        <Drawer />
         <Outlet />
     </div>
   )
