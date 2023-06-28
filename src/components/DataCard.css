@@ -1,0 +1,31 @@
+.data-card {
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #FBFBFB;
+    border-radius: 5px;
+}
+
+.data-card p {
+    margin: 0 0 0 1rem;
+    text-align: left;
+}
+
+.data-card div {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-between;
+}
+
+.data-card .type {
+    font-size: 14px;
+    font-weight: 500;
+    color: #74798C;
+}
+
+.data-card .strong {
+    margin-bottom: 0.7rem;
+    font-weight: bold;
+}

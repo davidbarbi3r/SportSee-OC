@@ -1,0 +1,33 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    width: 100%;  
+    padding: 1rem;  
+}
+
+.home-card-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.home-activity-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    padding: 1rem;
+}
+
+.home-data-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 25%;
+    padding: 2rem 1rem;
+}
