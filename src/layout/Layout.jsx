@@ -1,15 +1,18 @@
+import "./Layout.css"
 import { Outlet } from "react-router-dom"
+import Header from "./components/Header.jsx"
 
 function Layout() {
   return (
     <div>
-        <header>
-            <h1>Header</h1>
-        </header>
+        <Header />
+        <nav className="drawer-container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
         <Outlet />
-        <footer>
-            <h1>Footer</h1>
-        </footer>
     </div>
   )
 }
