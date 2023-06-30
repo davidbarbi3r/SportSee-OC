@@ -9,46 +9,16 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import Tooltips from "./Tooltips.jsx";
+import {formatActivity} from '../service/formatData';
 
-const data = [
-  {
-    date: "1",
-    kilogram: 80,
-    calories: 240,
-  },
-  {
-    date: "2",
-    kilogram: 80,
-    calories: 220,
-  },
-  {
-    date: "3",
-    kilogram: 81,
-    calories: 240,
-  },
-  {
-    date: "4",
-    kilogram: 81,
-    calories: 290,
-  },
-  {
-    date: "5",
-    kilogram: 80,
-    calories: 160,
-  },
-  {
-    date: "6",
-    kilogram: 78,
-    calories: 162,
-  },
-  {
-    date: "7",
-    kilogram: 76,
-    calories: 390,
-  },
-];
 
-export default function DailyActivityChart() {
+export default function DailyActivityChart(props) {
+  const data = formatActivity(props.activityData);
+
+  if (!data) {
+    return <div>ERROR</div>;
+  }
+  
   return (
     <>
       <div className="activity-chart-description">
@@ -68,11 +38,11 @@ export default function DailyActivityChart() {
         <BarChart data={data} barGap={8} barCategoryGap={1}>
           <CartesianGrid vertical={false} strokeDasharray="1 1" />
           <XAxis
-            dataKey="date"
+            dataKey="day"
             tickLine={false}
             tick={{ fontSize: 14 }}
             dy={15}
-            stroke="1 1"
+            color='#9B9EAC'
           />
           <YAxis
             yAxisId="kilogram"

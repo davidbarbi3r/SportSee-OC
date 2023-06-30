@@ -3,9 +3,9 @@ import {
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
-  PolarRadiusAxis,
   ResponsiveContainer,
 } from "recharts";
+import { formatPerformance } from "../service/formatData";
 
 const data = [
   {
@@ -40,7 +40,9 @@ const data = [
   },
 ];
 
-export default function StrenghtChart() {
+export default function StrenghtChart(props) {
+  const datatest = props.performanceData.data;
+  const data = formatPerformance(datatest);
   return (
     <ResponsiveContainer width="100%" height="100%">
       <RadarChart cx="50%" cy="50%" outerRadius="55%" data={data}>
@@ -48,7 +50,6 @@ export default function StrenghtChart() {
         <PolarAngleAxis dataKey="subject" />
         {/* <PolarRadiusAxis /> */}
         <Radar
-          name="Mike"
           dataKey="A"
           stroke="#fff"
           fill="red"

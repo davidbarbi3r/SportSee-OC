@@ -11,16 +11,12 @@ import {
 } from "recharts";
 import SessionsTooltips from "./SessionsTooltips.jsx";
 
-export default function SessionsChart() {
-  const data = [
-    { day: 1, sessionLength: 30 },
-    { day: 2, sessionLength: 23 },
-    { day: 3, sessionLength: 45 },
-    { day: 4, sessionLength: 50 },
-    { day: 5, sessionLength: 0 },
-    { day: 6, sessionLength: 0 },
-    { day: 7, sessionLength: 60 },
-  ];
+export default function SessionsChart(props) {
+  const data = props.sessionData.data.sessions;
+
+  if (!data) {
+    return <div>ERROR</div>;
+  }
 
   function CustomizedCursor({ points }) {
     return (

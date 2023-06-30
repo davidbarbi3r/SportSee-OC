@@ -1,9 +1,5 @@
 import { PieChart, Pie, ResponsiveContainer, Label, Cell } from "recharts";
-
-const data01 = [
-  { name: "Goal", value: 0.12 },
-  { name: "Total", value: 1 },
-];
+import { formatGoal } from "../service/formatData";
 
 const CustomLabel = ({ viewBox, value }) => {
     const { cx, cy } = viewBox;
@@ -36,12 +32,14 @@ const CustomLabel = ({ viewBox, value }) => {
     );
   };
 
-export default function GoalChart() {
+export default function GoalChart(props) {
+  const data = formatGoal(props.score);
+
   return (
     <ResponsiveContainer width="100%" height="100%">
       <PieChart width={400} height={400}>
         <Pie
-          data={data01}
+          data={data}
           dataKey="value"
           cx="50%"
           cy="50%"
@@ -57,7 +55,7 @@ export default function GoalChart() {
                 key={`cell-1`}
                 fill='#FFF'
             />
-            <Label content={<CustomLabel value={data01[0].value * 100} />} position="center" />
+            <Label content={<CustomLabel value={data[0].value * 100} />} position="center" />
         </Pie>
       </PieChart>
     </ResponsiveContainer>
