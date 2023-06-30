@@ -1,6 +1,8 @@
 import './SessionsChart.css';
+import propTypes from 'prop-types';
 import {
   LineChart,
+  Rectangle,
   Line,
   XAxis,
   YAxis,
@@ -20,16 +22,36 @@ export default function SessionsChart() {
     { day: 7, sessionLength: 60 },
   ];
 
+  function CustomizedCursor({ points }) {
+    return (
+      <Rectangle
+        fill="black"
+        opacity={0.1}
+        width={700}
+        height={700}
+        x={points[1].x}
+        y={-20}
+        overflow={"visible"}
+        accentHeight={'120%'}
+
+      />
+    );
+  }
+
   return (
     <div className="sessions-chart-container">
       <h3>Durée moyenne des sessions</h3>
-      <ResponsiveContainer width="100%" height="100%" className="sessions-chart">
+      <ResponsiveContainer
+        width="100%"
+        height="100%"
+        className="sessions-chart"
+      >
         <LineChart
           width={500}
           height={300}
           data={data}
           margin={{
-            top: 5,
+            top: 45,
             right: 5,
             bottom: 10,
             left: 5,
@@ -49,7 +71,10 @@ export default function SessionsChart() {
             stroke="1 1"
             hide={true}
           />
-          <Tooltip content={<SessionsTooltips/>} />
+          <Tooltip
+            content={<SessionsTooltips />}
+            cursor={<CustomizedCursor />}
+          />
           <Line
             type="monotone"
             dataKey="sessionLength"

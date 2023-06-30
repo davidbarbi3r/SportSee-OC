@@ -3,10 +3,11 @@
     display: flex;
     flex-direction: column;
     align-items: left;
-    overflow: hidden;
+    position: relative;
 }
 
 .sessions-chart-container h3 {
+    position: absolute;
     width: 60%;
     font-size: 14px;
     font-weight: 500;
