@@ -20,10 +20,10 @@ function useUserService (service, id, isMock = false) {
                 userServicePromise = userService.getUserActivity(id)
                 break
             case "average-sessions":
-                userServicePromise = userService.getAverageSessions(id)
+                userServicePromise = userService.getUserAverageSession(id)
                 break
             case "performance":
-                userServicePromise = userService.getPerformance(id)
+                userServicePromise = userService.getUserPerformance(id)
                 break
             default: 
             userServicePromise = userService.getUser(id)

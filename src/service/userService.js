@@ -20,16 +20,15 @@ export default class UserService {
             `http://localhost:3000/user/${userId}`
         )
         this.data = await response.json();
+        return this.data
     } catch (error) {
-        this.error = error
+        return error.message
     }
-
-    return [this.data, this.error]
   }
 
   async getUserActivity(userId) {
     if (this.isMock) {
-        return usersActivity.find(user => user.id == userId);
+        return usersActivity.find(user => user.data.userId == userId);
     }
 
     try {
@@ -37,14 +36,16 @@ export default class UserService {
             `http://localhost:3000/user/${userId}/activity`
         )
         this.data = await response.json();
+        return this.data
     } catch (error) {
         this.error = error
+        return error.message
     }
   }
 
   async getUserAverageSession(userId) {
     if (this.isMock) {
-        return usersAverageSession.find(user => user.id == userId);
+        return usersAverageSession.find(user => user.data.userId == userId);
     }
 
     try {
@@ -52,14 +53,16 @@ export default class UserService {
             `http://localhost:3000/user/${userId}/average-sessions`
         )
         this.data = await response.json();
+        return this.data
     } catch (error) {
         this.error = error
+        return error.message
     }
   }
 
   async getUserPerformance(userId) {
     if (this.isMock) {
-        return usersPerformance.find(user => user.id == userId);
+        return usersPerformance.find(user => user.data.userId == userId);
     }
 
     try {
@@ -67,8 +70,10 @@ export default class UserService {
         `http://localhost:3000/user/${userId}/performance`
         )
         this.data = await response.json();
+        return this.data
     } catch (error) {
         this.error = error
+        return error.message
     }
   }
 }
