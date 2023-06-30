@@ -28,7 +28,9 @@ function formatPerformance(data) {
 
 function formatGoal (data) {
     const formatedGoal = [
-        { name: "Goal", value: data },
+        { 
+            name: "Goal", 
+            value: data.score ? data.score : data.todayScore },
         { name: "Total", value: 1 },
         ];
 

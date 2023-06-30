@@ -15,7 +15,7 @@ function Home() {
     const {data: activityData, error: activityError, loading: activityLoading} = useUserService('activity', userId, USEMOCKED)
     const {data: sessionData, error: sessionError, loading: sessionLoading} = useUserService('average-sessions', userId, USEMOCKED)
     const {data: performanceData, error: performanceError, loading: performanceLoading} = useUserService('performance', userId, USEMOCKED)
-    
+
     if (loading || activityLoading || sessionLoading || performanceLoading) {
         return <div>Chargement...</div>
     }
@@ -41,7 +41,7 @@ function Home() {
                         <StrenghtChart performanceData={performanceData}/>
                     </article>
                     <article className='goal-chart'>
-                        <GoalChart score={data.data.todayScore} />
+                        <GoalChart score={data.data} />
                     </article>
                 </div>
             </div>
