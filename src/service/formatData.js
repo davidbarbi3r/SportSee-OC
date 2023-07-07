@@ -37,4 +37,14 @@ function formatGoal (data) {
     return formatedGoal
 }
 
-export { formatActivity, formatPerformance, formatGoal }
+
+
+function formatSessions (data) {
+    const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+    for (let i = 0; i < data.length; i++) {
+        data[i].day = days[i]
+    }
+    return data
+}
+
+export { formatActivity, formatPerformance, formatGoal, formatSessions }

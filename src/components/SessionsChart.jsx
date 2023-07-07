@@ -10,9 +10,10 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import SessionsTooltips from "./SessionsTooltips.jsx";
+import { formatSessions } from '../service/formatData';
 
 export default function SessionsChart(props) {
-  const data = props.sessionData.data.sessions;
+  const data = formatSessions(props.sessionData.data.sessions);
 
   if (!data) {
     return <div>ERROR</div>;
