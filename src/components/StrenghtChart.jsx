@@ -18,20 +18,19 @@ export default function StrenghtChart(props) {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <RadarChart cx="50%" cy="50%" outerRadius="55%" data={data}>
-        <PolarGrid radialLines={false} type="polygon" />
-        <PolarAngleAxis 
-          dataKey="subject" 
+        <PolarGrid
+          radialLines={false}
+          gridType="polygon"
+          polarRadius={[10, 20, 35, 50, 65]}
+        />
+        <PolarAngleAxis
+          dataKey="subject"
           stroke="#FFFFFF"
           tickLine={false}
           axisLine={false}
           tick={{ fontSize: 10 }}
         />
-        <Radar
-          dataKey="A"
-          stroke="#fff"
-          fill="red"
-          fillOpacity={0.7}
-        />
+        <Radar dataKey="A" stroke="#fff" fill="red" fillOpacity={0.7} />
       </RadarChart>
     </ResponsiveContainer>
   );
