@@ -81,3 +81,15 @@
     background-color: #FBFBFB;
     border-radius: 5px;
 }
+
+.not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.not-found > p {
+    font-size: 64px;
+}

@@ -10,18 +10,21 @@ import useUserService from '../service/useUserService'
 function Home() {
     const {pathname} = useLocation()
     const userId = pathname.split('/')[1]
-    const USEMOCKED = true
+    const USEMOCKED = false
     const {data, error, loading} = useUserService('user', userId, USEMOCKED)
     const {data: activityData, error: activityError, loading: activityLoading} = useUserService('activity', userId, USEMOCKED)
     const {data: sessionData, error: sessionError, loading: sessionLoading} = useUserService('average-sessions', userId, USEMOCKED)
     const {data: performanceData, error: performanceError, loading: performanceLoading} = useUserService('performance', userId, USEMOCKED)
-
+   
     if (loading || activityLoading || sessionLoading || performanceLoading) {
         return <div>Chargement...</div>
     }
 
     if (error || activityError || sessionError || performanceError) {
-        return <div>Une erreur est survenue</div>
+        return <section className='home not-found'>
+            <p>{error.code}</p>
+            <h2>{error.message}</h2>
+        </section>
     }
 
   return (

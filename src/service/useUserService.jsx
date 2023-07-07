@@ -32,6 +32,22 @@ function useUserService (service, id, isMock = false) {
 
         userServicePromise
             .then((data) => {
+                if (data == 'Failed to fetch') {
+                    setError({
+                        code: 500,
+                        message: 'Serveur indisponible'
+                    })
+                    setData(null)
+                    return
+                } 
+                if (data == 'can not get user') {
+                    setError({
+                        code: 404,
+                        message: 'Utilisateur non trouvé'
+                    })
+                    setData(null)
+                    return
+                }
                 setData(data)
                 setError(null)
             })

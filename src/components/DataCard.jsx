@@ -10,6 +10,10 @@ function DataCard(props) {
 
     const cardType = cardMap.get(props.type)
 
+    if (!cardType) {
+        return <div>ERROR</div>;
+    }
+
   return (
     <article className="data-card">
       <img src={`/${props.type}-icon.svg`} alt="calories-icon" />
